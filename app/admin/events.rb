@@ -12,8 +12,8 @@ ActiveAdmin.register Event, as: 'Eventos' do
       f.input :career, label: 'Carrera a la que aplica'
       f.input :description, label: 'Descripcion general'
       f.input :location, label: 'Lugar'
-      f.input :startDate, label: 'Fecha de inicio'
-      f.input :endDate, label: 'Fecha de finzalizacion'
+      f.input :startDate, :as => 'string', label: 'Fecha de inicio', :input_html => { :class => 'datepicker with_time'}
+      f.input :endDate, :as => 'string', label: 'Fecha de finzalizacion', :input_html => { :class => 'datepicker with_time'}
       f.input :img, label: 'Imagen de portada', :as => 'file'
     end
     f.actions
