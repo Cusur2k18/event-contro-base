@@ -19,7 +19,7 @@ gem 'uglifier', '>= 1.3.0'
 # Active admin
 gem 'activeadmin'
 
-# devises
+# devise
 gem 'devise'
 
 # Use CoffeeScript for .coffee assets and views
