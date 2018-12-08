@@ -21,7 +21,7 @@ ActiveAdmin.register Event, as: 'Eventos' do
       f.input :location, label: 'Lugar'
       f.input :startDate, :as => 'string', label: 'Fecha de inicio', :input_html => { :class => 'datepicker with_time'}
       f.input :endDate, :as => 'string', label: 'Fecha de finzalizacion', :input_html => { :class => 'datepicker with_time'}
-      f.input :cover, label: 'Imagen de portada', :as => 'file'
+      f.input :cover, label: 'Imagen de portada', :as => 'file', :hint => image_tag(f.object.cover)
     end
     f.actions
   end
