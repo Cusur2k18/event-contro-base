@@ -1,7 +1,6 @@
 (function($, moment){
 
   function init() {
-
     // Configure datetime pickers
     setDefaultConfigDatetimepicker();
 
