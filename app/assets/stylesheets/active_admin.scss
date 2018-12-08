@@ -15,3 +15,17 @@
 // For example, to change the default status-tag color:
 //
 //   .status_tag { background: #6090DB; }
+
+.columns {
+  padding: 1rem 25rem;
+
+  li {
+    margin-top: .5rem;
+  }
+
+  span {
+    font-size: 1.0em;
+    font-weight: bold;
+    color: #5E6469;
+  }
+}
