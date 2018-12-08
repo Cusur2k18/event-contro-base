@@ -5,6 +5,10 @@ ActiveAdmin.register Event, as: 'Eventos' do
   # Scope the events to the current user
   scope_to :current_admin_user, association_method: :events
 
+  before_create do |event|
+    event.uuid = SecureRandom.uuid
+  end
+
   before_save do |event|
     unless params[:event][:cover].nil?
       result = Cloudinary::Uploader.unsigned_upload params[:event][:cover].path, 'cu8bwt31', :folder => 'cusur-eventos'
