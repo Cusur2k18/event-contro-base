@@ -9,18 +9,13 @@
       inline: true, // show the datepicker
       step: 30, // each 30min
       minDate: 0, // Today
-      timepickerScrollbar: false,
       scrollMonth: false,
-      scrollTime: false,
       timepicker: false
     }
 
     // Set the date pickers
-    $('.datepicker.with_time').datetimepicker(Object.assign({}, pickerConfig, { timepicker: true }));
-
     $('.datepicker').datetimepicker(pickerConfig);
-
-
+    $('.datepicker.with_time').datetimepicker(Object.assign({}, pickerConfig, { timepicker: true }));
   }
 
   function setDefaultConfigDatetimepicker() {
