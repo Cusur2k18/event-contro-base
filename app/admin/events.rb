@@ -21,7 +21,7 @@ ActiveAdmin.register Event, as: 'Eventos' do
     f.inputs do
       f.input :name, label: 'Nombre del evento'
       f.input :career, label: 'Carrera a la que aplica'
-      f.input :description, label: 'Descripcion general'
+      f.input :description, label: 'Descripcion general', as: :trumbowyg
       f.input :location, label: 'Lugar'
       columns do
         column max_width: "500px", min_width: "100px" do

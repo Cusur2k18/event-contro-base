@@ -19,6 +19,9 @@ gem 'uglifier', '>= 1.3.0'
 # Active admin
 gem 'activeadmin'
 
+# Active admin trumbowyg editor
+gem 'activeadmin_trumbowyg'
+
 # devise
 gem 'devise'
 
