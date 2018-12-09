@@ -18,6 +18,7 @@ gem 'uglifier', '>= 1.3.0'
 
 # Active admin
 gem 'activeadmin'
+gem 'jquery-ui-rails'
 
 # Active admin trumbowyg editor
 gem 'activeadmin_trumbowyg'

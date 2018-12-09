@@ -6,8 +6,8 @@ class CreateEvents < ActiveRecord::Migration[5.2]
       t.string :career
       t.text :description
       t.string :location
-      t.datetime :startDate
-      t.datetime :endDate
+      t.datetime :start_date
+      t.datetime :end_date
       t.string :cover
       t.references :admin_user, foreign_key: true
 

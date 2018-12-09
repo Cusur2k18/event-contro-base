@@ -1,20 +1,19 @@
-(function($, moment){
+(function($){
 
   function init() {
     // Configure datetime pickers
     setDefaultConfigDatetimepicker();
 
     const pickerConfig = {
-      inline: true, // show the datepicker
+      inline: true,
       step: 30, // each 30min
       minDate: 0, // Today
       scrollMonth: false,
-      timepicker: false
+      timepicker: true
     }
 
     // Set the date pickers
-    $('.datepicker').datetimepicker(pickerConfig);
-    $('.datepicker.with_time').datetimepicker(Object.assign({}, pickerConfig, { timepicker: true }));
+    $('.custom-datepicker').datetimepicker(pickerConfig);
   }
 
   function setDefaultConfigDatetimepicker() {
@@ -26,4 +25,4 @@
   }
 
   $(document).ready(init)
-}(jQuery, moment))
+}(jQuery))

@@ -55,8 +55,8 @@ ActiveRecord::Schema.define(version: 2018_12_07_032518) do
     t.string "career"
     t.text "description"
     t.string "location"
-    t.datetime "startDate"
-    t.datetime "endDate"
+    t.datetime "start_date"
+    t.datetime "end_date"
     t.string "cover"
     t.integer "admin_user_id"
     t.datetime "created_at", null: false
