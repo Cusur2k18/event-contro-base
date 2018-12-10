@@ -31,6 +31,7 @@ gem 'cloudinary', '1.9.1'
 
 # wicked pdf for reports
 gem 'wicked_pdf'
+gem 'wkhtmltopdf-binary'
 
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'

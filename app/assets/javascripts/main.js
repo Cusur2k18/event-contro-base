@@ -2,8 +2,21 @@
 
   function init() {
     // Configure datetime pickers
-    setDefaultConfigDatetimepicker();
+    setCustomDatetimepicker();
 
+    // Add the target to the download links
+    addTargetToDownloadLinks();
+
+  }
+
+  function setCustomDatetimepicker() {
+    // Set default date formatter function
+    $.datetimepicker.setDateFormatter('moment');
+
+    // set default locale
+    $.datetimepicker.setLocale('es');
+
+    // Init custom datepickers
     const pickerConfig = {
       inline: true,
       step: 30, // each 30min
@@ -16,12 +29,12 @@
     $('.custom-datepicker').datetimepicker(pickerConfig);
   }
 
-  function setDefaultConfigDatetimepicker() {
-    // Set default date formatter function
-    $.datetimepicker.setDateFormatter('moment');
+  function addTargetToDownloadLinks() {
+    const links = $('.download_links a')
 
-    // set default locale
-    $.datetimepicker.setLocale('es');
+    links.each(function(i, el) {
+      $(el).attr('target', '_blank')
+    })
   }
 
   $(document).ready(init)
