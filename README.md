@@ -1,24 +1,40 @@
-# README
+# CUSUR-Control de eventos
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
+This application is the cms and api for the easy event register app
 
 * Ruby version
-
-* System dependencies
+  `ruby-2.5.3`
 
 * Configuration
+  * ***Cloudinary setup:***
+    - Copy the example file
+      ```bash
+        cp app/config/cloudinary.example.yml app/config/cloudinary.yml
+      ```
+    - Fill it wit your own values.
 
-* Database creation
+* Database creation.<br/>
+  * Run the migrations: 
+
+    ```bash
+    $ rails db:migrate
+    ```
 
 * Database initialization
+  * For development, run the seeds
+    ```bash
+    $ rails db:seed
+    ```
+* Run it <br />
+  
+  Run the local server:
+    ```bash
+    $ rails s
+    ```
+  go to `localhost:3000/admin` and log in with the following credentials
+    ```
+      username: admin@example.com
+      password: password
+    ```
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+  ***Enjoy it!***
