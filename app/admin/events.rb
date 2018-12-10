@@ -16,6 +16,14 @@ ActiveAdmin.register Event, as: 'Eventos' do
     end
   end
 
+  controller do
+    def show
+      super do |format|
+        format.pdf { render(pdf: "report-#{resource.uuid}.pdf") }
+      end
+    end
+  end
+
   # ================================================= START INDEX =========================================================
   # _____ _   _ _____  ________   __
   # |_   _| \ | |  __ \|  ____\ \ / /
@@ -47,11 +55,21 @@ ActiveAdmin.register Event, as: 'Eventos' do
   # |____/___|____/|_____|____/_/   \_\_| \_\   \___/\/   |____/|_| |_|\___/  \_/\_/  
   show do
     attributes_table do
-      row :name
-      row :career
-      row :location
-      row :start_date
-      row :end_date
+      row 'Nombre' do |event|
+        event.name
+      end
+      row 'Carrera' do |event|
+        event.career
+      end
+      row 'Lugar del evento' do |event|
+        event.location
+      end
+      row 'Fecha de inicio' do |event|
+        event.start_date
+      end
+      row 'Fecha de finalizacion' do |event|
+        event.end_date
+      end
 
       panel 'Descripcion' do
         attributes_table_for resource do

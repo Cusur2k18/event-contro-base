@@ -27,7 +27,10 @@ gem 'activeadmin_trumbowyg'
 gem 'devise'
 
 # Cloudinary
-gem 'cloudinary', "1.9.1"
+gem 'cloudinary', '1.9.1'
+
+# wicked pdf for reports
+gem 'wicked_pdf'
 
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
