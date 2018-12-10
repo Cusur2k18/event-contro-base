@@ -6,12 +6,20 @@ This application is the cms and api for the easy event register app
   `ruby-2.5.3`
 
 * Configuration
-  * ***Cloudinary setup:***
-    - Copy the example file
-      ```bash
-        cp app/config/cloudinary.example.yml app/config/cloudinary.yml
-      ```
-    - Fill it wit your own values.
+
+  We use [Rails Credentials](https://www.engineyard.com/blog/rails-encrypted-credentials-on-rails-5.2) for all the environment configuration.
+
+  First ask the administrator for the ***master key*** (***NOTE:*** You only need to do all of this if you need to modify the credentials).
+  
+  Put the master key in a file named `master.key` under `app/config/`. (You can create one if doesn't exists).
+
+  To add or edit the credentials run:
+
+  ```bash 
+    EDITOR=code bin/rails credentials:edit
+  ```
+  edit or remove the credentials as you wish.
+
 
 * Database creation.<br/>
   * Run the migrations: 
