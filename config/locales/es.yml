@@ -55,7 +55,7 @@ es:
       default: "%d/%m/%Y"
       long: "%A, %d de %B de %Y"
       short: "%d de %b"
-      short_pdf: "%a %d %b %Y a las %I:%M %p"
+      short_pdf: "%a/%d/%b/%Y - %l:%M %p"
     month_names:
     -
     - enero
@@ -238,7 +238,7 @@ es:
       default: "%a, %d de %b de %Y a las %H:%M:%S %Z"
       long: "%A, %d de %B de %Y a las %I:%M %p"
       short: "%d de %b a las %H:%M hrs"
-      short_pdf: "%a %d %b %Y a las %I:%M %p"
+      short_pdf: "%a/%d/%b/%Y - %l:%M %p"
     pm: pm
   devise:
     confirmations:

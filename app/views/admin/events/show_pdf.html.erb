@@ -1,7 +1,7 @@
 <table cellspacing="1">
   <thead>
     <tr>
-      <th colspan="2">Nombre</th>
+      <th>Nombre</th>
       <th>Carrera</th>
       <th>Lugar del evento</th>
       <th>Fecha de inicio</th>
@@ -11,7 +11,7 @@
   <tbody>
     <% @events.each do |event| %>
       <tr>
-        <td colspan="2"><%= event.name %></td>
+        <td><%= event.name %></td>
         <td><%= event.career %></td>
         <td><%= event.location %></td>
         <td><%= I18n.l event.start_date, :format => :short_pdf %></td>
