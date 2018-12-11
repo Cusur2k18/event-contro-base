@@ -43,8 +43,11 @@ $red_required: #FF530D;
 }
 
 form .required {
-  color: $red_required;
-  text-decoration: underline dotted;
+
+  &:not(.trumbowyg) {
+    color: $red_required;
+    text-decoration: underline dotted;
+  }
 }
 
 abbr[title="requerido"] {

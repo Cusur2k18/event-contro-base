@@ -18,7 +18,7 @@
 
     // Init custom datepickers
     const pickerConfig = {
-      inline: true,
+      inline: false,
       step: 30, // each 30min
       minDate: 0, // Today
       scrollMonth: false,
@@ -27,6 +27,7 @@
 
     // Set the date pickers
     $('.custom-datepicker').datetimepicker(pickerConfig);
+    $('.edit .custom-datepicker').datetimepicker(Object.assign(pickerConfig, { inline: true }));
   }
 
   function addTargetToDownloadLinks() {

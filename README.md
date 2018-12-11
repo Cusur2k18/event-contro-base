@@ -9,9 +9,9 @@ This application is the cms and api for the easy event register app
 
   We use [Rails Credentials](https://www.engineyard.com/blog/rails-encrypted-credentials-on-rails-5.2) for all the environment configuration.
 
-  First ask the administrator for the ***master key*** (***NOTE:*** You only need to do all of this if you need to modify the credentials).
+  First ask the administrator for the ***master key***.
   
-  Put the master key in a file named `master.key` under `app/config/`. (You can create one if doesn't exists).
+  Put the master key in the file `master.key` under `app/config/`. (You can create one if doesn't exists).
 
   To add or edit the credentials run:
 

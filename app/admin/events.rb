@@ -133,7 +133,7 @@ ActiveAdmin.register Event, as: 'Eventos' do
           f.input :end_date, :as => 'string', label: false, :input_html => { :class => 'custom-datepicker'}
         end
       end
-      f.input :cover, label: 'Imagen de portada', :as => 'file', :hint => (image_tag(f.object.cover) if f.object.cover)
+      f.input :cover, label: 'Imagen de portada', :as => 'file', :hint => (image_tag(f.object.cover, size: "200x200") if f.object.cover)
     end
     f.actions
   end # ================================================== END FORM ==========================================================
