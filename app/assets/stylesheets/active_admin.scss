@@ -20,6 +20,38 @@
 
 $red_required: #FF530D;
 
+
+
+html {
+  height: 100%;
+  box-sizing: border-box;
+}
+
+body {
+  position: relative;
+  margin: 0;
+  min-height: 100%;
+}
+
+.footer {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 20px !important;
+  background-color: #efefef;
+  text-align: center;
+
+  ul {
+    list-style: none;
+    text-align: left;
+    li {
+      padding: 3px 0;
+    }
+  }
+}
+
+
 .columns {
   padding: 1rem 20%;
 
@@ -54,3 +86,4 @@ abbr[title="requerido"] {
   color: $red_required;
   padding: 3px;
 }
+
