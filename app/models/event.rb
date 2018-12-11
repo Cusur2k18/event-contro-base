@@ -4,6 +4,9 @@ class Event < ApplicationRecord
   has_many :enrollments
   has_many :students, through: :enrollments
 
+  validates_presence_of :name, :career, :description, :location, :start_date, :end_date
+
+
   def get_transformed_image(transformation)
      if cover
       img_parts = cover.split('upload')

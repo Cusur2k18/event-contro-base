@@ -18,8 +18,10 @@
 //
 //   .status_tag { background: #6090DB; }
 
+$red_required: #FF530D;
+
 .columns {
-  padding: 1rem 25rem;
+  padding: 1rem 20%;
 
   li {
     margin-top: .5rem;
@@ -30,4 +32,22 @@
     font-weight: bold;
     color: #5E6469;
   }
+}
+
+.required-label {
+  display: block;
+  width: 95%;
+  text-align: right;
+  padding: 14px 0;
+  color: $red_required;
+}
+
+form .required {
+  color: $red_required;
+  text-decoration: underline dotted;
+}
+
+abbr[title="requerido"] {
+  color: $red_required;
+  padding: 3px;
 }

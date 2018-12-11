@@ -115,6 +115,7 @@ ActiveAdmin.register Event, as: 'Eventos' do
   # |_|    \____/|_|  \_\_|  |_|
   form do |f|
     f.inputs do
+      span '* Requeridos', class: 'required-label'
       f.input :name, label: 'Nombre del evento'
       f.input :career, label: 'Carrera a la que aplica'
       f.input :description, label: 'Descripcion general', as: :trumbowyg
@@ -122,15 +123,17 @@ ActiveAdmin.register Event, as: 'Eventos' do
       columns do
         column max_width: "500px", min_width: "100px" do
           span 'Fecha de inicio'
+          span '*', class: 'required'
           f.input :start_date, :as => 'string', label: false, :input_html => { :class => 'custom-datepicker'}
         end
 
         column max_width: "500px", min_width: "100px" do
           span 'Fecha de finalizacion'
+          span '*', class: 'required'
           f.input :end_date, :as => 'string', label: false, :input_html => { :class => 'custom-datepicker'}
         end
       end
-      f.input :cover, label: 'Imagen de portada', :as => 'file', :hint => image_tag(f.object.get_transformed_image('w_200,h_150'))
+      f.input :cover, label: 'Imagen de portada', :as => 'file', :hint => (image_tag(f.object.cover) if f.object.cover)
     end
     f.actions
   end # ================================================== END FORM ==========================================================
