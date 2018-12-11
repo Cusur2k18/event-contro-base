@@ -1,0 +1,16 @@
+<table cellspacing="1">
+  <thead>
+    <tr>
+      <th>Email</th>
+      <th>Super Administrador</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.email %></td>
+        <td><%= user.is_super_admin %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
