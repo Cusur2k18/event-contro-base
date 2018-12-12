@@ -1,0 +1,105 @@
+// SASS variable overrides must be declared before loading up Active Admin's styles.
+//
+// To view the variables that Active Admin provides, take a look at
+// `app/assets/stylesheets/active_admin/mixins/_variables.scss` in the
+// Active Admin source.
+//
+// For example, to change the sidebar width:
+// $sidebar-width: 242px;
+
+// Active Admin's got SASS!
+@import "active_admin/mixins";
+@import "active_admin/base";
+@import 'activeadmin/trumbowyg/ui/sass/trumbowyg';
+@import 'activeadmin/trumbowyg_input';
+
+// Overriding any non-variable SASS must be done after the fact.
+// For example, to change the default status-tag color:
+//
+//   .status_tag { background: #6090DB; }
+
+$red_required: #FF530D;
+
+html {
+  height: 100%;
+  box-sizing: border-box;
+}
+
+body {
+  position: relative;
+  margin: 0;
+  min-height: 100%;
+}
+
+.footer {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 20px !important;
+  text-align: center;
+  background: linear-gradient(360deg, #efefef, #dfe1e2);
+  box-shadow: 0 -1px 3px rgba(0, 0, 0, 0.37);
+
+  
+  .footer-left {
+    width: 49%;
+    text-align: left;
+    display: inline-block;
+    ul {
+      list-style: none;
+      li {
+        padding: 3px 0;
+      }
+    }
+  }
+
+  .footer-right {
+    width: 49%;
+    text-align: right;
+    display: inline-block;
+    ul {
+      list-style: none;
+      li {
+        padding: 3px 0;
+      }
+    }
+  }
+}
+
+
+.columns {
+  padding: 1rem 20%;
+
+  li {
+    margin-top: .5rem;
+  }
+
+  span {
+    font-size: 1.0em;
+    font-weight: bold;
+    color: #5E6469;
+  }
+}
+
+.required-label {
+  display: block;
+  width: 95%;
+  text-align: right;
+  padding: 14px 0;
+  color: $red_required;
+}
+
+form .required {
+
+  &:not(.trumbowyg) {
+    color: $red_required;
+    text-decoration: underline dotted;
+  }
+}
+
+abbr[title="requerido"] {
+  color: $red_required;
+  padding: 3px;
+}
+
