@@ -2,8 +2,11 @@ class EventsController < ApiController
 
 
   def index
-    @events = Event.all
-    binding.pry
+    if (params[:filter_type] != 'all') do
+      @events = Event.send params[:filter_type] , params[:value]
+    else
+      @events = Event.send params[:filter_type]
+    end
     render json: @events.to_json
   end
 end
