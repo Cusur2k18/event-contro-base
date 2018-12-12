@@ -5,7 +5,20 @@ class Event < ApplicationRecord
   has_many :students, through: :enrollments
 
   validates_presence_of :name, :career, :description, :location, :start_date, :end_date
+  
+  scope :by_newest, lambda {
+    order('created_at DESC')
+  }
 
+  scope :by_name, lambda { |value|
+    where('name LIKE ?', "%#{value}%")
+  }
+
+  scope :by_career, lambda { |value|
+    where('career LIKE ?', "%#{value}%")
+  }
+
+  default_scope { by_newest }
 
   def get_transformed_image(transformation)
      if cover

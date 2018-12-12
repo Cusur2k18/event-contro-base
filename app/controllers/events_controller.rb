@@ -1,5 +1,6 @@
 class EventsController < ApiController
 
+
   def index
     @events = Event.all
     binding.pry
