@@ -33,7 +33,7 @@ ActiveAdmin.register Event, as: 'Eventos' do
         format.json { super }
 
         format.pdf do
-          @events = Event.all
+          @events = current_admin_user.events
           render pdf: 'events', layout: 'pdf', template: 'admin/events/show_pdf.html.erb'
         end
       end
@@ -116,21 +116,21 @@ ActiveAdmin.register Event, as: 'Eventos' do
   form do |f|
     f.inputs do
       span '* Requeridos', class: 'required-label'
-      f.input :name, label: 'Nombre del evento'
-      f.input :career, label: 'Carrera a la que aplica'
-      f.input :description, label: 'Descripcion general', as: :trumbowyg
-      f.input :location, label: 'Lugar'
+      f.input :name, label: 'Nombre del evento', :input_html => { :autocomplete => 'off' }
+      f.input :career, label: 'Carrera a la que aplica', :input_html => { :autocomplete => 'off' }
+      f.input :description, label: 'Descripcion general', as: :trumbowyg, :input_html => { :autocomplete => 'off' }
+      f.input :location, label: 'Lugar', :input_html => { :autocomplete => 'off' }
       columns do
         column max_width: "500px", min_width: "100px" do
           span 'Fecha de inicio'
           span '*', class: 'required'
-          f.input :start_date, :as => 'string', label: false, :input_html => { :class => 'custom-datepicker'}
+          f.input :start_date, :as => 'string', label: false, :input_html => { :class => 'custom-datepicker', :autocomplete => 'off', :readonly => 'readonly' }
         end
 
         column max_width: "500px", min_width: "100px" do
           span 'Fecha de finalizacion'
           span '*', class: 'required'
-          f.input :end_date, :as => 'string', label: false, :input_html => { :class => 'custom-datepicker'}
+          f.input :end_date, :as => 'string', label: false, :input_html => { :class => 'custom-datepicker', :autocomplete => 'off', :readonly => 'readonly' }
         end
       end
       f.input :cover, label: 'Imagen de portada', :as => 'file', :hint => (image_tag(f.object.cover, size: "200x200") if f.object.cover)
