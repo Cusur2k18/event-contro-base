@@ -20,8 +20,6 @@
 
 $red_required: #FF530D;
 
-
-
 html {
   height: 100%;
   box-sizing: border-box;
@@ -39,14 +37,32 @@ body {
   bottom: 0;
   left: 0;
   padding: 20px !important;
-  background-color: #efefef;
   text-align: center;
+  background: linear-gradient(360deg, #efefef, #dfe1e2);
+  box-shadow: 0 -1px 3px rgba(0, 0, 0, 0.37);
 
-  ul {
-    list-style: none;
+  
+  .footer-left {
+    width: 49%;
     text-align: left;
-    li {
-      padding: 3px 0;
+    display: inline-block;
+    ul {
+      list-style: none;
+      li {
+        padding: 3px 0;
+      }
+    }
+  }
+
+  .footer-right {
+    width: 49%;
+    text-align: right;
+    display: inline-block;
+    ul {
+      list-style: none;
+      li {
+        padding: 3px 0;
+      }
     }
   }
 }
