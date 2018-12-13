@@ -1,9 +1,8 @@
 class EventsController < ApiController
 
-
   def index
-    if (params[:filter_type] != 'all') do
-      @events = Event.send params[:filter_type] , params[:value]
+    if (params[:filter_type] != 'all') then
+      @events = Event.send params[:filter_type], params[:value]
     else
       @events = Event.send params[:filter_type]
     end

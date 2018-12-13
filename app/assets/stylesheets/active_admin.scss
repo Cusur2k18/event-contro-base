@@ -28,11 +28,11 @@ html {
 body {
   position: relative;
   margin: 0;
-  min-height: 100%;
+  min-height: 100vh;
 }
 
 .footer {
-  position: absolute;
+  position: relative;
   right: 0;
   bottom: 0;
   left: 0;
@@ -103,3 +103,6 @@ abbr[title="requerido"] {
   padding: 3px;
 }
 
+#main_content_wrapper {
+  margin-bottom: 5vh;
+}
