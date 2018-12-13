@@ -19,15 +19,14 @@ gem 'uglifier', '>= 1.3.0'
 # Active admin
 gem 'activeadmin'
 gem 'jquery-ui-rails'
-
 # Active admin trumbowyg editor
 gem 'activeadmin_trumbowyg'
-
 # devise
 gem 'devise'
-
 # Cloudinary
 gem 'cloudinary', '1.9.1'
+# Savon for SOAP
+gem 'savon', '~> 2.12.0'
 
 # wicked pdf for reports
 gem 'wicked_pdf'
