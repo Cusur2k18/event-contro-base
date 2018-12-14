@@ -21,7 +21,7 @@ class Event < ApplicationRecord
   default_scope { by_newest }
 
   def get_transformed_image(transformation)
-     if cover
+    if cover
       img_parts = cover.split('upload')
       img_parts[0] + '/upload/q_auto,f_auto,' + transformation + ',' + img_parts[1]
     else
