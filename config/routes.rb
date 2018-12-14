@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   scope '/api' do
     get '/students/login', to: 'students#login', as: :udg_login
     resources :students
-    resources :events
-    resources :enrollments
+    resources :events, only: [:index, :show]
+    resources :enrollments, only: [:create, :update]
   end
 end
