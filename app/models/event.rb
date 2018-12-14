@@ -18,6 +18,10 @@ class Event < ApplicationRecord
     where('career LIKE ?', "%#{value}%")
   }
 
+  scope :by_uuid, lambda { |uuid|
+    where('uuid = ?', uuid)
+  }
+
   scope :today_events, lambda {
     where('start_date BETWEEN ? AND ?', Time.now.beginning_of_day, Time.now.end_of_day)
   }

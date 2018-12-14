@@ -27,6 +27,8 @@ gem 'devise'
 gem 'cloudinary', '1.9.1'
 # Savon for SOAP
 gem 'savon', '~> 2.12.0'
+# CORS
+gem 'rack-cors'
 
 # wicked pdf for reports
 gem 'wicked_pdf'
