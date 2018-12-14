@@ -1,7 +1,7 @@
 class EventsController < ApiController
 
   def index
-    if (params[:filter_type] != 'all')
+    if (params[:filter_type] != 'all' and params[:filter_type] != 'today_events')
       events = Event.send params[:filter_type], params[:value]
     else
       events = Event.send params[:filter_type]
@@ -10,7 +10,7 @@ class EventsController < ApiController
   end
 
   def enroll
-    enroll = Enrollment.new({ :student_id, params[:student_id], event_id: params[:event_id], attended: false })
+    enroll = Enrollment.new({ student_id: params[:student_id], event_id: params[:event_id], attended: false })
 
     if (enroll.save)
         render json: @enroll.to_json

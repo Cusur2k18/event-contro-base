@@ -18,6 +18,10 @@ class Event < ApplicationRecord
     where('career LIKE ?', "%#{value}%")
   }
 
+  scope :today_events, lambda {
+    where('start_date BETWEEN ? AND ?', Time.now.beginning_of_day, Time.now.end_of_day)
+  }
+
   default_scope { by_newest }
 
   def get_transformed_image(transformation)
