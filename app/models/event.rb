@@ -23,7 +23,7 @@ class Event < ApplicationRecord
   }
 
   scope :today_events, lambda {
-    where('start_date BETWEEN ? AND ?', Time.now.beginning_of_day, Time.now.end_of_day)
+    includes(:students).where('start_date BETWEEN ? AND ?', Time.now.beginning_of_day, Time.now.end_of_day)
   }
 
   default_scope { by_newest }
