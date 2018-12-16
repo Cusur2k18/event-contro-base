@@ -31,4 +31,9 @@ class StudentsController < ApiController
       end
     end
   end
+
+  def my_enrollments
+    student = Student.find(params[:id])
+    render json: student.enrollments.to_json
+  end
 end

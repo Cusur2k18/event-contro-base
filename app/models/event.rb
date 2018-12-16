@@ -19,11 +19,15 @@ class Event < ApplicationRecord
   }
 
   scope :by_uuid, lambda { |uuid|
-    where('uuid = ?', uuid)
+    where('uuid = ?', uuid).first
+  }
+
+  scope :by_id, lambda { |id|
+    where('id = ?', id).first
   }
 
   scope :today_events, lambda {
-    includes(:students).where('start_date BETWEEN ? AND ?', Time.now.beginning_of_day, Time.now.end_of_day)
+    where('start_date BETWEEN ? AND ?', Time.now.beginning_of_day, Time.now.end_of_day)
   }
 
   default_scope { by_newest }
