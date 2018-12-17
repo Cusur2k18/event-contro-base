@@ -59,6 +59,7 @@ ActiveAdmin.register Event, as: 'Eventos' do
     column 'Fecha de inicio', :start_date
     column 'Fecha de finalizacion', :end_date
     column 'Carrera', :career
+    column 'Registro activo', :open_to_enroll
     actions
   end # ================================================= END INDEX =========================================================
 
@@ -86,6 +87,12 @@ ActiveAdmin.register Event, as: 'Eventos' do
       end
       row 'Fecha de finalizacion' do |event|
         event.end_date
+      end
+      row 'Numero de lugares' do |event|
+        event.available_spots > 0 ? event.available_spots : 'No aplica'
+      end
+      row 'Registro activo?' do |event|
+        event.open_to_enroll
       end
 
       panel 'Descripcion' do
@@ -120,6 +127,8 @@ ActiveAdmin.register Event, as: 'Eventos' do
       f.input :career, label: 'Carrera a la que aplica', :input_html => { :autocomplete => 'off' }
       f.input :description, label: 'Descripcion general', as: :trumbowyg, :input_html => { :autocomplete => 'off' }
       f.input :location, label: 'Lugar', :input_html => { :autocomplete => 'off' }
+      f.input :available_spots, label: 'Lugares disponibles (deja en 0 si no aplica)', :input_html => { :autocomplete => 'off' }
+      f.input :open_to_enroll, label: '¿Registro activo?', :input_html => { :autocomplete => 'off' }
       columns do
         column max_width: "500px", min_width: "100px" do
           span 'Fecha de inicio'

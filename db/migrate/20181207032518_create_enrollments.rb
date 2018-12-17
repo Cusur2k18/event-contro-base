@@ -1,7 +1,7 @@
 class CreateEnrollments < ActiveRecord::Migration[5.2]
   def change
     create_table :enrollments do |t|
-      t.boolean :attended
+      t.boolean :attended, default: false
       t.datetime :attended_date
       t.references :event, foreign_key: true
       t.references :student, foreign_key: true

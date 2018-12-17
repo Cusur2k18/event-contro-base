@@ -8,6 +8,8 @@ class CreateEvents < ActiveRecord::Migration[5.2]
       t.string :location
       t.datetime :start_date
       t.datetime :end_date
+      t.boolean :open_to_enroll, default: true
+      t.integer :available_spots, default: 0
       t.string :cover
       t.references :admin_user, foreign_key: true
 

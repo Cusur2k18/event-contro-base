@@ -27,7 +27,6 @@ class EventsController < ApiController
     event = Event.find(params[:event_id])
     enroll = event.enrollments.find(params[:enroll_id])
 
-
     if enroll
       event.enrollments.destroy(enroll)
       render json: { error: false, success: true, message: 'Register successfully deleted' }
