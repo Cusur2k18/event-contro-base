@@ -193,13 +193,17 @@ ActiveAdmin.setup do |config|
   # and feel.
   #
   # To load a stylesheet:
+    config.register_stylesheet 'jquery-ui.min.css'
     config.register_stylesheet 'jquery.datetimepicker.css'
+    config.register_stylesheet 'jquery.toggle.css'
   #
   # You can provide an options hash for more control, which is passed along to stylesheet_link_tag():
   #   config.register_stylesheet 'my_print_stylesheet.css', media: :print
   #
   # To load a javascript file:
+    config.register_javascript 'jquery-ui.min.js'
     config.register_javascript 'jquery.datetimepicker.js'
+    config.register_javascript 'jquery.toggle.js'
     config.register_javascript 'moment.js'
     config.register_javascript 'main.js'
 
