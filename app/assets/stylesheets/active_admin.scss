@@ -20,23 +20,33 @@
 
 $red_required: #FF530D;
 
-html {
-  height: 100%;
+* {
   box-sizing: border-box;
+}
+*:before,
+*:after {
+box-sizing: border-box;
 }
 
 body {
-  position: relative;
   margin: 0;
-  min-height: 100vh;
+  padding: 0;
+  height: 100vh;
+}
+
+#wrapper {
+  min-height: 100vh; /* will cover the 100% of viewport */
+  overflow: hidden;
+  display: block;
+  position: relative;
+  padding-bottom: 160px; /* height of your footer */
 }
 
 .footer {
-  position: relative;
-  right: 0;
+  position: absolute;
   bottom: 0;
-  left: 0;
   padding: 20px !important;
+  width: 100%;
   text-align: center;
   background: linear-gradient(360deg, #efefef, #dfe1e2);
   box-shadow: 0 -1px 3px rgba(0, 0, 0, 0.37);
