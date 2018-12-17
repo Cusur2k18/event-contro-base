@@ -19,15 +19,16 @@ gem 'uglifier', '>= 1.3.0'
 # Active admin
 gem 'activeadmin'
 gem 'jquery-ui-rails'
-
 # Active admin trumbowyg editor
 gem 'activeadmin_trumbowyg'
-
 # devise
 gem 'devise'
-
 # Cloudinary
 gem 'cloudinary', '1.9.1'
+# Savon for SOAP
+gem 'savon', '~> 2.12.0'
+# CORS
+gem 'rack-cors'
 
 # wicked pdf for reports
 gem 'wicked_pdf'
@@ -56,6 +57,8 @@ gem 'bootsnap', '>= 1.1.0', require: false
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'pry'
+  gem 'pry-rails'
 end
 
 group :development do
