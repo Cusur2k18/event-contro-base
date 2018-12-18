@@ -33,7 +33,11 @@ class StudentsController < ApiController
   end
 
   def my_enrollments
-    student = Student.find(params[:id])
-    render json: student.enrollments.to_json
+    begin
+      student = Student.find(params[:id])
+      render json: student.enrollments.to_json  
+    rescue
+      render json: { error: true, success: false, message: 'No student for that id'}
+    end    
   end
 end
