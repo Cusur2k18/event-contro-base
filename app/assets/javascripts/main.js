@@ -7,6 +7,9 @@
     // Add the target to the download links
     addTargetToDownloadLinks();
 
+    // Set the checkbox toggle
+    setCheckboxToggle();
+
   }
 
   function setCustomDatetimepicker() {
@@ -36,6 +39,13 @@
     links.each(function(i, el) {
       $(el).attr('target', '_blank')
     })
+  }
+
+  function setCheckboxToggle() {
+    $('input[type="checkbox"]').switchButton({
+      on_label: 'Si',
+      off_label: 'No'  
+    });
   }
 
   $(document).ready(init)

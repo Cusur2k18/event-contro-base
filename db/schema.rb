@@ -40,7 +40,7 @@ ActiveRecord::Schema.define(version: 2018_12_07_032518) do
   end
 
   create_table "enrollments", force: :cascade do |t|
-    t.boolean "attended"
+    t.boolean "attended", default: false
     t.datetime "attended_date"
     t.integer "event_id"
     t.integer "student_id"
@@ -58,6 +58,8 @@ ActiveRecord::Schema.define(version: 2018_12_07_032518) do
     t.string "location"
     t.datetime "start_date"
     t.datetime "end_date"
+    t.boolean "open_to_enroll", default: true
+    t.integer "available_spots", default: 0
     t.string "cover"
     t.integer "admin_user_id"
     t.datetime "created_at", null: false

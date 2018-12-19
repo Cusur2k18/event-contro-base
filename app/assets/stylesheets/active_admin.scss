@@ -34,12 +34,21 @@ body {
   height: 100vh;
 }
 
+
+
 #wrapper {
   min-height: 100vh; /* will cover the 100% of viewport */
   overflow: hidden;
   display: block;
   position: relative;
   padding-bottom: 160px; /* height of your footer */
+
+
+  input[type=number] {
+    width: 5%;
+    padding: 10px;
+    font-size: 18px;
+  }
 }
 
 .footer {

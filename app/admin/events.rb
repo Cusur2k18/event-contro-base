@@ -1,6 +1,6 @@
 ActiveAdmin.register Event, as: 'Eventos' do
   menu label: 'Mis Eventos', if: proc{ !current_admin_user.super_admin }
-  permit_params :name, :career, :description, :location, :start_date, :end_date, :cover
+  permit_params :name, :career, :description, :location, :start_date, :end_date, :cover, :available_spots, :open_to_enroll
 
   # Scope the events to the current user
   scope_to :current_admin_user, association_method: :events
@@ -11,7 +11,7 @@ ActiveAdmin.register Event, as: 'Eventos' do
 
   before_save do |event|
     unless params[:event][:cover].nil?
-      result = Cloudinary::Uploader.unsigned_upload params[:event][:cover].path, 'cu8bwt31', :folder => 'cusur-eventos'
+      result = Cloudinary::Uploader.unsigned_upload params[:event][:cover].path, 'cu8bwt31', folder: 'cusur-eventos'
       event.cover = result['secure_url']
     end
   end
@@ -49,7 +49,6 @@ ActiveAdmin.register Event, as: 'Eventos' do
   #  _| |_| |\  | |__| | |____ / . \ 
   # |_____|_| \_|_____/|______/_/ \_\
   index do
-    selectable_column
     column "Imagen" do |event|
       link_to image_tag(event.get_transformed_image('w_200,h_150'), size: "200x150", alt: event.name), admin_evento_path(event)
     end
@@ -59,9 +58,12 @@ ActiveAdmin.register Event, as: 'Eventos' do
     column 'Fecha de inicio', :start_date
     column 'Fecha de finalizacion', :end_date
     column 'Carrera', :career
+    column 'Registro activo', :open_to_enroll
+    column 'Alumnos registrados' do |event|
+      span (event.available_spots > 0 ? (event.students.length.to_s + ' / ' + event.available_spots.to_s) : (event.students.length.to_s))
+    end
     actions
   end # ================================================= END INDEX =========================================================
-
 
 
   # ================================================= START SHOW =========================================================
@@ -70,28 +72,43 @@ ActiveAdmin.register Event, as: 'Eventos' do
   # \___ \| || | | |  _| |  _ \ / _ \ | |_) |   / _ \/\   \___ \| |_| | | | \ \ /\ / / 
   #  ___) | || |_| | |___| |_) / ___ \|  _ <   | (_>  <    ___) |  _  | |_| |\ V  V /  
   # |____/___|____/|_____|____/_/   \_\_| \_\   \___/\/   |____/|_| |_|\___/  \_/\_/  
-  show do
+  show do |event|
     attributes_table do
-      row 'Nombre' do |event|
+      row 'Nombre' do
         event.name
       end
-      row 'Carrera' do |event|
+      row 'Carrera' do
         event.career
       end
-      row 'Lugar del evento' do |event|
+      row 'Lugar del evento' do
         event.location
       end
-      row 'Fecha de inicio' do |event|
+      row 'Fecha de inicio' do
         event.start_date
       end
-      row 'Fecha de finalizacion' do |event|
+      row 'Fecha de finalizacion' do
         event.end_date
+      end
+      row 'Numero de lugares' do
+        event.available_spots > 0 ? event.available_spots : 'No aplica'
+      end
+      row 'Registro activo?' do
+        event.open_to_enroll
       end
 
       panel 'Descripcion' do
         attributes_table_for resource do
           insert_tag(Arbre::HTML::Div) { content_tag(:span, raw(resource.description)) }
         end
+      end
+    end
+
+    panel 'Alumnos registrados' do
+      span "Numero de alumnos registrados: #{event.students.length}"
+      table_for(event.students) do
+        column 'Codigo', :student_code
+        column 'Nombre', :name
+        column 'Carrera', :career
       end
     end
   end
@@ -116,24 +133,26 @@ ActiveAdmin.register Event, as: 'Eventos' do
   form do |f|
     f.inputs do
       span '* Requeridos', class: 'required-label'
-      f.input :name, label: 'Nombre del evento', :input_html => { :autocomplete => 'off' }
-      f.input :career, label: 'Carrera a la que aplica', :input_html => { :autocomplete => 'off' }
-      f.input :description, label: 'Descripcion general', as: :trumbowyg, :input_html => { :autocomplete => 'off' }
-      f.input :location, label: 'Lugar', :input_html => { :autocomplete => 'off' }
+      f.input :name, label: 'Nombre del evento', input_html: { autocomplete: 'off' }
+      f.input :career, label: 'Carrera a la que aplica', input_html: { autocomplete: 'off' }
+      f.input :description, label: 'Descripcion general', as: :trumbowyg, input_html: { autocomplete: 'off' }
+      f.input :location, label: 'Lugar', input_html: { autocomplete: 'off' }
+      f.input :available_spots, label: 'Lugares disponibles (deja en 0 si no aplica)', input_html: { autocomplete: 'off', min: '0' }
+      f.input :open_to_enroll, label: '¿Habilitar registro?', input_html: { autocomplete: 'off' }
       columns do
         column max_width: "500px", min_width: "100px" do
           span 'Fecha de inicio'
           span '*', class: 'required'
-          f.input :start_date, :as => 'string', label: false, :input_html => { :class => 'custom-datepicker', :autocomplete => 'off', :readonly => 'readonly' }
+          f.input :start_date, as: 'string', label: false, input_html: { class: 'custom-datepicker', autocomplete: 'off', readonly: 'readonly' }
         end
 
         column max_width: "500px", min_width: "100px" do
           span 'Fecha de finalizacion'
           span '*', class: 'required'
-          f.input :end_date, :as => 'string', label: false, :input_html => { :class => 'custom-datepicker', :autocomplete => 'off', :readonly => 'readonly' }
+          f.input :end_date, as: 'string', label: false, input_html: { class: 'custom-datepicker', autocomplete: 'off', readonly: 'readonly' }
         end
       end
-      f.input :cover, label: 'Imagen de portada', :as => 'file', :hint => (image_tag(f.object.cover, size: "200x200") if f.object.cover)
+      f.input :cover, label: 'Imagen de portada', as: 'file', hint: (image_tag(f.object.cover, size: "200x200") if f.object.cover)
     end
     f.actions
   end # ================================================== END FORM ==========================================================
