@@ -59,9 +59,11 @@ ActiveAdmin.register Event, as: 'Eventos' do
     column 'Fecha de finalizacion', :end_date
     column 'Carrera', :career
     column 'Registro activo', :open_to_enroll
+    column 'Alumnos registrados' do |event|
+      span (event.available_spots > 0 ? (event.students.length.to_s + ' / ' + event.available_spots.to_s) : (event.students.length.to_s))
+    end
     actions
   end # ================================================= END INDEX =========================================================
-
 
 
   # ================================================= START SHOW =========================================================
@@ -70,27 +72,27 @@ ActiveAdmin.register Event, as: 'Eventos' do
   # \___ \| || | | |  _| |  _ \ / _ \ | |_) |   / _ \/\   \___ \| |_| | | | \ \ /\ / / 
   #  ___) | || |_| | |___| |_) / ___ \|  _ <   | (_>  <    ___) |  _  | |_| |\ V  V /  
   # |____/___|____/|_____|____/_/   \_\_| \_\   \___/\/   |____/|_| |_|\___/  \_/\_/  
-  show do
+  show do |event|
     attributes_table do
-      row 'Nombre' do |event|
+      row 'Nombre' do
         event.name
       end
-      row 'Carrera' do |event|
+      row 'Carrera' do
         event.career
       end
-      row 'Lugar del evento' do |event|
+      row 'Lugar del evento' do
         event.location
       end
-      row 'Fecha de inicio' do |event|
+      row 'Fecha de inicio' do
         event.start_date
       end
-      row 'Fecha de finalizacion' do |event|
+      row 'Fecha de finalizacion' do
         event.end_date
       end
-      row 'Numero de lugares' do |event|
+      row 'Numero de lugares' do
         event.available_spots > 0 ? event.available_spots : 'No aplica'
       end
-      row 'Registro activo?' do |event|
+      row 'Registro activo?' do
         event.open_to_enroll
       end
 
@@ -98,6 +100,15 @@ ActiveAdmin.register Event, as: 'Eventos' do
         attributes_table_for resource do
           insert_tag(Arbre::HTML::Div) { content_tag(:span, raw(resource.description)) }
         end
+      end
+    end
+
+    panel 'Alumnos registrados' do
+      span "Numero de alumnos registrados: #{event.students.length}"
+      table_for(event.students) do
+        column 'Codigo', :student_code
+        column 'Nombre', :name
+        column 'Carrera', :career
       end
     end
   end
