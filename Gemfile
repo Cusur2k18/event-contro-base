@@ -29,7 +29,9 @@ gem 'cloudinary', '1.9.1'
 gem 'savon', '~> 2.12.0'
 # CORS
 gem 'rack-cors'
-
+# API pagination
+gem 'grape', '>= 0.10.0'
+gem 'api-pagination'
 # wicked pdf for reports
 gem 'wicked_pdf'
 gem 'wkhtmltopdf-binary'

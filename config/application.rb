@@ -31,6 +31,5 @@ module ControlAdmin
         resource '*', headers: :any, methods: [:get, :post, :options, :put, :delete]
       end
     end
-
   end
 end

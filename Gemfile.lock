@@ -61,12 +61,17 @@ GEM
     akami (1.3.1)
       gyoku (>= 0.4.0)
       nokogiri
+    api-pagination (4.8.2)
     arbre (1.1.1)
       activesupport (>= 3.0.0)
     archive-zip (0.11.0)
       io-like (~> 0.3.0)
     arel (9.0.0)
     aws_cf_signer (0.1.3)
+    axiom-types (0.1.1)
+      descendants_tracker (~> 0.0.4)
+      ice_nine (~> 0.11.0)
+      thread_safe (~> 0.3, >= 0.3.1)
     bcrypt (3.1.12)
     bindex (0.5.0)
     bootsnap (1.3.2)
@@ -90,6 +95,8 @@ GEM
       aws_cf_signer
       rest-client
     coderay (1.1.2)
+    coercible (1.0.0)
+      descendants_tracker (~> 0.0.1)
     coffee-rails (4.2.2)
       coffee-script (>= 2.2.0)
       railties (>= 4.0.0)
@@ -99,6 +106,8 @@ GEM
     coffee-script-source (1.12.2)
     concurrent-ruby (1.1.3)
     crass (1.0.4)
+    descendants_tracker (0.0.4)
+      thread_safe (~> 0.3, >= 0.3.1)
     devise (4.5.0)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
@@ -107,6 +116,7 @@ GEM
       warden (~> 1.2.3)
     domain_name (0.5.20180417)
       unf (>= 0.0.5, < 1.0.0)
+    equalizer (0.0.11)
     erubi (1.7.1)
     execjs (2.7.0)
     faker (1.9.1)
@@ -117,6 +127,13 @@ GEM
     formtastic_i18n (0.6.0)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
+    grape (1.2.2)
+      activesupport
+      builder
+      mustermann-grape (~> 1.0.0)
+      rack (>= 1.3.0)
+      rack-accept
+      virtus (>= 1.0.0)
     gyoku (1.3.1)
       builder (>= 2.1.2)
     has_scope (0.7.2)
@@ -129,6 +146,7 @@ GEM
       socksify
     i18n (1.1.1)
       concurrent-ruby (~> 1.0)
+    ice_nine (0.11.2)
     inherited_resources (1.9.0)
       actionpack (>= 4.2, < 5.3)
       has_scope (~> 0.6)
@@ -177,6 +195,9 @@ GEM
     minitest (5.11.3)
     msgpack (1.2.4)
     multi_json (1.13.1)
+    mustermann (1.0.3)
+    mustermann-grape (1.0.0)
+      mustermann (~> 1.0.0)
     netrc (0.11.0)
     nio4r (2.3.1)
     nokogiri (1.8.5)
@@ -191,6 +212,8 @@ GEM
     public_suffix (3.0.3)
     puma (3.12.0)
     rack (2.0.6)
+    rack-accept (0.4.5)
+      rack (>= 0.4)
     rack-cors (1.0.2)
     rack-test (1.1.0)
       rack (>= 1.0, < 3)
@@ -286,6 +309,11 @@ GEM
     unf (0.1.4)
       unf_ext
     unf_ext (0.0.7.5)
+    virtus (1.0.5)
+      axiom-types (~> 0.1)
+      coercible (~> 1.0)
+      descendants_tracker (~> 0.0, >= 0.0.3)
+      equalizer (~> 0.0, >= 0.0.9)
     warden (1.2.8)
       rack (>= 2.0.6)
     wasabi (3.5.0)
@@ -310,6 +338,7 @@ PLATFORMS
 DEPENDENCIES
   activeadmin
   activeadmin_trumbowyg
+  api-pagination
   bootsnap (>= 1.1.0)
   byebug
   capybara (>= 2.15)
@@ -318,6 +347,7 @@ DEPENDENCIES
   coffee-rails (~> 4.2)
   devise
   faker
+  grape (>= 0.10.0)
   jbuilder (~> 2.5)
   jquery-ui-rails
   listen (>= 3.0.5, < 3.2)
