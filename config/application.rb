@@ -31,5 +31,10 @@ module ControlAdmin
         resource '*', headers: :any, methods: [:get, :post, :options, :put, :delete]
       end
     end
+
+    ApiPagination.configure do |config|
+
+        config.page_header = 'Current-Page'
+    end
   end
 end
