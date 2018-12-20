@@ -59,9 +59,6 @@ ActiveAdmin.register Event, as: 'Eventos' do
     column 'Fecha de finalizacion', :end_date
     column 'Carrera', :career
     column 'Registro activo', :open_to_enroll
-    column 'Alumnos registrados' do |event|
-      span (event.available_spots > 0 ? (event.students.length.to_s + ' / ' + event.available_spots.to_s) : (event.students.length.to_s))
-    end
     actions
   end # ================================================= END INDEX =========================================================
 
