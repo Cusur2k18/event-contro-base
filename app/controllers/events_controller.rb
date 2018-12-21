@@ -7,7 +7,7 @@ class EventsController < ApiController
       events = Event.send params[:filter_type]
     end
     if params[:filter_type] != 'by_uuid' and params[:filter_type] != 'by_id'
-      paginate json: events, per_page: params[:per_page] || 10
+      paginate json: events, per_page: params[:per_page] || 9
     else
       render json: events.to_json(include: :students) # this is only one, no need for pagination on rest
     end
