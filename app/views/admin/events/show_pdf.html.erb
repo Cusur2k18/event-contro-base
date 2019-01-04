@@ -11,7 +11,7 @@
   <tbody>
     <% @events.each do |event| %>
       <tr>
-        <td><%= event.name %></td>
+        <td width="1000"><%= event.name %></td>
         <td><%= event.career %></td>
         <td><%= event.location %></td>
         <td><%= I18n.l event.start_date, :format => :short_pdf %></td>

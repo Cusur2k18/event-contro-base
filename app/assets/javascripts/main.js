@@ -31,6 +31,7 @@
     // Set the date pickers
     $('.custom-datepicker').datetimepicker(pickerConfig);
     $('.edit .custom-datepicker').datetimepicker(Object.assign(pickerConfig, { inline: true }));
+    $('.filter_form .custom-datepicker').datetimepicker(Object.assign(pickerConfig, { inline: false, timepicker: false, format: 'DD/MM/YYYY', minDate: false }));
   }
 
   function addTargetToDownloadLinks() {

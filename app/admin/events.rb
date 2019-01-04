@@ -33,7 +33,7 @@ ActiveAdmin.register Event, as: 'Eventos' do
         format.json { super }
 
         format.pdf do
-          @events = current_admin_user.events
+          @events = current_admin_user.events.ransack(params[:q]).result
           render pdf: 'events', layout: 'pdf', template: 'admin/events/show_pdf.html.erb'
         end
       end
@@ -165,7 +165,7 @@ ActiveAdmin.register Event, as: 'Eventos' do
   # |_|    |_____|______|_|  |______|_|  \_\_____/
   filter :name_cont, label: 'Nombre'
   filter :career_cont, label: 'Carrera a la que aplica'
-  filter :start_date, label: 'Fecha de inicio'
+  filter :start_date_gteq, label: 'Fecha de inicio (mayor o igual a)', as: :string, input_html: { class: 'custom-datepicker', autocomplete: 'off', readonly: 'readonly' }
   # ================================================== END FILTERS ========================================================
 
 end

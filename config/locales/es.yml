@@ -7,6 +7,11 @@ es:
         restrict_dependent_destroy:
           has_one: El registro no puede ser eliminado pues existe un %{record} dependiente
           has_many: El registro no puede ser eliminado pues existen %{record} dependientes
+    attributes: 
+      event: 
+        start_date: "Fecha de inicio"
+        name: "Nombre"
+        career: "Carrera"
   active_admin:
     create_another: "Crear otro"
     new_model: "Agregar"
