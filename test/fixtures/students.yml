@@ -1,15 +1,15 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  student_code: MyString
-  career: MyString
-  grade: MyString
-  email: MyString
-  name: MyString
+# one:
+#   student_code: MyString
+#   career: MyString
+#   grade: MyString
+#   email: MyString
+#   name: MyString
 
-two:
-  student_code: MyString
-  career: MyString
-  grade: MyString
-  email: MyString
-  name: MyString
+# two:
+#   student_code: MyString
+#   career: MyString
+#   grade: MyString
+#   email: MyString
+#   name: MyString
