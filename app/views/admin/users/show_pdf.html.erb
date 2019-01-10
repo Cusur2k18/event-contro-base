@@ -2,14 +2,14 @@
   <thead>
     <tr>
       <th>Email</th>
-      <th>Super Administrador</th>
+      <th>Rol</th>
     </tr>
   </thead>
   <tbody>
     <% @users.each do |user| %>
       <tr>
         <td><%= user.email %></td>
-        <td><%= user.is_super_admin %></td>
+        <td><%= user.get_role_name %></td>
       </tr>
     <% end %>
   </tbody>
