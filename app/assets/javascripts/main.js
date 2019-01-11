@@ -43,7 +43,7 @@
   }
 
   function setCheckboxToggle() {
-    $('input[type="checkbox"]').switchButton({
+    $('input[type="checkbox"]:not(#login input[type="checkbox"])').switchButton({
       on_label: 'Si',
       off_label: 'No'  
     });

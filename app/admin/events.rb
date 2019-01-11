@@ -173,7 +173,7 @@ ActiveAdmin.register Event, as: 'Eventos' do
 
 
   action_item :view, only: :show, priority: 0 do
-    link_to 'Descargar lista de asistencia', asistencia_admin_evento_path(resource.id), class: 'target_blank' # if can be use here
+    link_to 'Descargar lista de asistencia', asistencia_admin_evento_path(resource.id), class: 'target_blank' if resource.attendance_list_ready?
   end
 
 
