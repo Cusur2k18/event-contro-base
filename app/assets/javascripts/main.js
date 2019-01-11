@@ -35,7 +35,7 @@
   }
 
   function addTargetToDownloadLinks() {
-    const links = $('.download_links a')
+    const links = $('.download_links a, .target_blank')
 
     links.each(function(i, el) {
       $(el).attr('target', '_blank')
@@ -43,7 +43,7 @@
   }
 
   function setCheckboxToggle() {
-    $('input[type="checkbox"]').switchButton({
+    $('input[type="checkbox"]:not(#login input[type="checkbox"])').switchButton({
       on_label: 'Si',
       off_label: 'No'  
     });

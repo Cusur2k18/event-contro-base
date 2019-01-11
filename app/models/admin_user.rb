@@ -7,7 +7,7 @@ class AdminUser < ApplicationRecord
 
 
 
-  def is_super_admin
+  def get_role_name
     super_admin ? 'Super adminisrador' : 'Usuario regular'
   end
 
