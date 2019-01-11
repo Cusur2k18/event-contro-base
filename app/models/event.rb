@@ -37,7 +37,7 @@ class Event < ApplicationRecord
       img_parts = cover.split('upload')
       img_parts[0] + '/upload/q_auto,f_auto,' + transformation + ',' + img_parts[1]
     else
-      'https://via.placeholder.com/150?text=sin imagen'
+      ActionController::Base.helpers.asset_path('no-image.png')
     end
   end
 
