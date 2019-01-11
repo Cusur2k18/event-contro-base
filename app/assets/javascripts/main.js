@@ -35,7 +35,7 @@
   }
 
   function addTargetToDownloadLinks() {
-    const links = $('.download_links a')
+    const links = $('.download_links a, .target_blank')
 
     links.each(function(i, el) {
       $(el).attr('target', '_blank')

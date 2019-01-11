@@ -16,6 +16,13 @@ ActiveAdmin.register Event, as: 'Eventos' do
     end
   end
 
+
+  member_action :asistencia, method: :get do
+    @event = resource
+    render pdf: 'event', layout: 'pdf', template: 'admin/events/show_pdf.html.erb'
+  end
+
+
   # ================================================= START CONTROLLER =========================================================
   #   _____ ____  _   _ _______ _____   ____  _      _      ______ _____  
   #  / ____/ __ \| \ | |__   __|  __ \ / __ \| |    | |    |  ____|  __ \ 
@@ -34,7 +41,7 @@ ActiveAdmin.register Event, as: 'Eventos' do
 
         format.pdf do
           @events = current_admin_user.events.ransack(params[:q]).result
-          render pdf: 'events', layout: 'pdf', template: 'admin/events/show_pdf.html.erb'
+          render pdf: 'events', layout: 'pdf', template: 'admin/events/index_pdf.html.erb'
         end
       end
     end
@@ -71,9 +78,6 @@ ActiveAdmin.register Event, as: 'Eventos' do
   # |____/___|____/|_____|____/_/   \_\_| \_\   \___/\/   |____/|_| |_|\___/  \_/\_/  
   show do |event|
     attributes_table do
-      row 'Nombre' do
-        event.name
-      end
       row 'Carrera' do
         event.career
       end
@@ -153,7 +157,6 @@ ActiveAdmin.register Event, as: 'Eventos' do
     end
     f.actions
   end # ================================================== END FORM ==========================================================
-
   
 
   # ================================================= START FILTERS ======================================================
@@ -167,5 +170,11 @@ ActiveAdmin.register Event, as: 'Eventos' do
   filter :career_cont, label: 'Carrera a la que aplica'
   filter :start_date_gteq, label: 'Fecha de inicio (mayor o igual a)', as: :string, input_html: { class: 'custom-datepicker', autocomplete: 'off', readonly: 'readonly' }
   # ================================================== END FILTERS ========================================================
+
+
+  action_item :view, only: :show, priority: 0 do
+    link_to 'Descargar lista de asistencia', asistencia_admin_evento_path(resource.id), class: 'target_blank' # if can be use here
+  end
+
 
 end
