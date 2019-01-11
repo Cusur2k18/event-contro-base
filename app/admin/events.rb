@@ -5,6 +5,14 @@ ActiveAdmin.register Event, as: 'Eventos' do
   # Scope the events to the current user
   scope_to :current_admin_user, association_method: :events
 
+
+  # ================================================= START HOOKS =========================================================
+  # _    _  ____   ____  _  __ _____ 
+  # | |  | |/ __ \ / __ \| |/ // ____|
+  # | |__| | |  | | |  | | ' /| (___  
+  # |  __  | |  | | |  | |  <  \___ \ 
+  # | |  | | |__| | |__| | . \ ____) |
+  # |_|  |_|\____/ \____/|_|\_\_____/
   before_create do |event|
     event.uuid = SecureRandom.uuid
   end
@@ -14,13 +22,20 @@ ActiveAdmin.register Event, as: 'Eventos' do
       result = Cloudinary::Uploader.unsigned_upload params[:event][:cover].path, 'cu8bwt31', folder: 'cusur-eventos'
       event.cover = result['secure_url']
     end
-  end
+  end # ================================================= END HOOKS =========================================================
 
 
+  # ================================================= START CUSTOM ACTIONS =========================================================
+  #   _____  _____ _______            _____ _______ _____ ____  _   _  _____ 
+  #  / ____|/ ____|__   __|     /\   / ____|__   __|_   _/ __ \| \ | |/ ____|
+  # | |    | (___    | |       /  \ | |       | |    | || |  | |  \| | (___  
+  # | |     \___ \   | |      / /\ \| |       | |    | || |  | | . ` |\___ \ 
+  # | |____ ____) |  | |     / ____ \ |____   | |   _| || |__| | |\  |____) |
+  #  \_____|_____/   |_|    /_/    \_\_____|  |_|  |_____\____/|_| \_|_____/
   member_action :asistencia, method: :get do
     @event = resource
     render pdf: 'event', layout: 'pdf', template: 'admin/events/show_pdf.html.erb'
-  end
+  end # ================================================= END CUSTOM ACTIONS =========================================================
 
 
   # ================================================= START CONTROLLER =========================================================
@@ -63,7 +78,7 @@ ActiveAdmin.register Event, as: 'Eventos' do
       link_to event.name, admin_evento_path(event)
     end
     column 'Fecha de inicio', :start_date
-    column 'Fecha de finalizacion', :end_date
+    column 'Fecha de finalización', :end_date
     column 'Carrera', :career
     column 'Registro activo', :open_to_enroll
     actions
@@ -97,7 +112,7 @@ ActiveAdmin.register Event, as: 'Eventos' do
         event.open_to_enroll
       end
 
-      panel 'Descripcion' do
+      panel 'Descripción' do
         attributes_table_for resource do
           insert_tag(Arbre::HTML::Div) { content_tag(:span, raw(resource.description)) }
         end
@@ -123,7 +138,6 @@ ActiveAdmin.register Event, as: 'Eventos' do
   end # ================================================= END SHOW =========================================================
 
 
-
   # ================================================= START FORM =========================================================
   #  ______ ____  _____  __  __ 
   # |  ____/ __ \|  __ \|  \/  |
@@ -136,7 +150,7 @@ ActiveAdmin.register Event, as: 'Eventos' do
       span '* Requeridos', class: 'required-label'
       f.input :name, label: 'Nombre del evento', input_html: { autocomplete: 'off' }
       f.input :career, label: 'Carrera a la que aplica', input_html: { autocomplete: 'off' }
-      f.input :description, label: 'Descripcion general', as: :trumbowyg, input_html: { autocomplete: 'off' }
+      f.input :description, label: 'Descripción general', as: :trumbowyg, input_html: { autocomplete: 'off' }
       f.input :location, label: 'Lugar', input_html: { autocomplete: 'off' }
       f.input :available_spots, label: 'Lugares disponibles (deja en 0 si no aplica)', input_html: { autocomplete: 'off', min: '0' }
       f.input :open_to_enroll, label: '¿Habilitar registro?', input_html: { autocomplete: 'off' }
@@ -148,7 +162,7 @@ ActiveAdmin.register Event, as: 'Eventos' do
         end
 
         column max_width: "500px", min_width: "100px" do
-          span 'Fecha de finalizacion'
+          span 'Fecha de finalización'
           span '*', class: 'required'
           f.input :end_date, as: 'string', label: false, input_html: { class: 'custom-datepicker', autocomplete: 'off', readonly: 'readonly' }
         end
@@ -172,9 +186,16 @@ ActiveAdmin.register Event, as: 'Eventos' do
   # ================================================== END FILTERS ========================================================
 
 
+  # ================================================= START ACTIONS ITEMS ======================================================
+  #           _____ _______ _____ ____  _   _   _____ _______ ______ __  __  _____ 
+  #     /\   / ____|__   __|_   _/ __ \| \ | | |_   _|__   __|  ____|  \/  |/ ____|
+  #    /  \ | |       | |    | || |  | |  \| |   | |    | |  | |__  | \  / | (___  
+  #   / /\ \| |       | |    | || |  | | . ` |   | |    | |  |  __| | |\/| |\___ \ 
+  #  / ____ \ |____   | |   _| || |__| | |\  |  _| |_   | |  | |____| |  | |____) |
+  # /_/    \_\_____|  |_|  |_____\____/|_| \_| |_____|  |_|  |______|_|  |_|_____/ 
   action_item :view, only: :show, priority: 0 do
     link_to 'Descargar lista de asistencia', asistencia_admin_evento_path(resource.id), class: 'target_blank' if resource.attendance_list_ready?
-  end
+  end # ================================================== END ACTIONS ITEMS ========================================================
 
 
 end

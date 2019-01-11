@@ -82,17 +82,17 @@
       <table>
         <tbody>
           <tr>
-            <td><b><u>Nombre del evento:</u> &nbsp; <%= @event.name %></b></td>
+            <td colspan="2"><b><u>Nombre del evento:</u> &nbsp; <%= @event.name %></b></td>
           </tr>
           <tr>
-            <td><b><u>Lugar:</u> &nbsp; <%= @event.location %></b></td>
+            <td colspan="2"><b><u>Lugar:</u> &nbsp; <%= @event.location %></b></td>
           </tr>
           <tr>
-            <td><b><u>Fecha de inicio:</u> &nbsp; <%= @event.start_date.strftime('%d %B %Y a la(s) %l %M %P') %></b></td>
-            <td><b><u>Fecha de finalizacion:</u> &nbsp; <%= @event.end_date.strftime('%d %B %Y a la(s) %l %M %P') %></b></td>
+            <td><b><u>Fecha de inicio:</u> &nbsp; <%= l(@event.start_date, format: '%d %B %Y a la(s) %l:%M %P') %></b></td>
+            <td><b><u>Fecha de finalización:</u> &nbsp; <%= l(@event.end_date, format: '%d %B %Y a la(s) %l:%M %P') %></b></td>
           </tr>
           <tr>
-            <td><b><u>Alumnos registrados:</u> &nbsp;<%= @event.students.length %></b></td>
+            <td colspan="2"><b><u>N° Alumnos registrados:</u> &nbsp;<%= @event.students.length %></b></td>
           </tr>
         </tbody>
       </table>
@@ -102,7 +102,7 @@
       <table cellspacing="1">
         <thead>
           <tr align="center">
-            <th>Codigo</th>
+            <th>Código</th>
             <th>Nombre</th>
             <th>Carrera</th>
             <th>Asistencia</th>
