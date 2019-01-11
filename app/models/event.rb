@@ -40,4 +40,8 @@ class Event < ApplicationRecord
       'https://via.placeholder.com/150?text=sin imagen'
     end
   end
+
+  def attendance_list_ready?
+    end_date.to_date.past? && students.length > 0
+  end
 end

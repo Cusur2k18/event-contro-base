@@ -1,0 +1,22 @@
+<table cellspacing="1">
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Carrera</th>
+      <th>Lugar del evento</th>
+      <th>Fecha de inicio</th>
+      <th>Fecha de finalizacion</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @events.each do |event| %>
+      <tr>
+        <td width="1000"><%= event.name %></td>
+        <td><%= event.career %></td>
+        <td><%= event.location %></td>
+        <td><%= I18n.l event.start_date, :format => :short_pdf %></td>
+        <td><%= I18n.l event.end_date, :format => :short_pdf %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

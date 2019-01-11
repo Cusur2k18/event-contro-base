@@ -51,15 +51,4 @@ if Rails.env.development?
     )
   end
 
-  # Students
-  200.times do
-    Student.create(
-      student_code: Faker::Code.unique.sin,
-      career: careers.sample,
-      grade: nil,
-      email: nil,
-      name: Faker::Name.unique.name
-    )
-  end
-
 end
