@@ -10,6 +10,10 @@ class Event < ApplicationRecord
     order('created_at DESC')
   }
 
+  scope :get_all, lambda {
+    where('visible_for_app = true')
+  }
+
   scope :by_name, lambda { |value|
     where('name LIKE ?', "%#{value}%").where('visible_for_app = true')
   }
