@@ -29,24 +29,24 @@ if Rails.env.development?
   70.times do
     Event.create(
       uuid: SecureRandom.uuid,
-      name: Faker::Name.unique.name,
+      name: Faker::Educator.course,
       career: careers.sample,
       description: Faker::Matz.quote,
-      location: Faker::Nation.capital_city,
-      start_date: Faker::Time.between(3.days.ago, Date.today),
-      end_date: Faker::Time.between(Date.today, 3.days.from_now),
+      location: Faker::Educator.campus,
+      start_date: Faker::Time.between(Date.today, 3.days.from_now),
+      end_date: Faker::Time.between(3.days.from_now, 6.days.from_now),
       admin_user_id: 1
     )
   end
   50.times do
     Event.create(
       uuid: SecureRandom.uuid,
-      name: Faker::RickAndMorty.quote,
+      name: Faker::Educator.course,
       career: careers.sample,
       description: Faker::Matz.quote,
-      location: Faker::Nation.capital_city,
-      start_date: Faker::Time.between(3.days.ago, Date.today),
-      end_date: Faker::Time.between(Date.today, 3.days.from_now),
+      location: Faker::Educator.campus,
+      start_date: Faker::Time.between(Date.today, 3.days.from_now),
+      end_date: Faker::Time.between(3.days.from_now, 6.days.from_now),
       admin_user_id: 2
     )
   end

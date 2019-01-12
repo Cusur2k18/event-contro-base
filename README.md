@@ -16,7 +16,7 @@ This application is the cms and api for the easy event register app
   To add or edit the credentials run:
 
   ```bash 
-    EDITOR=code bin/rails credentials:edit
+    EDITOR=vim bin/rails credentials:edit
   ```
   edit or remove the credentials as you wish.
 
