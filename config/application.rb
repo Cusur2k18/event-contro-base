@@ -16,6 +16,9 @@ module ControlAdmin
     # -- all .rb files in that directory are automatically loaded after loading
     # the framework and any gems in your application.
 
+    # Fix for heroku
+    config.assets.initialize_on_precompile = false
+
     # locale
     config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
 
