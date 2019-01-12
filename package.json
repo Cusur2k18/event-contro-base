@@ -1,5 +1,8 @@
 {
   "name": "control-admin",
   "private": true,
-  "dependencies": {}
+  "dependencies": {},
+  "engines": {
+    "yarn": "1.9.4"
+  }
 }
