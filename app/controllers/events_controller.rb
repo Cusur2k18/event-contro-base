@@ -1,16 +1,19 @@
 class EventsController < ApiController
 
   def index
-    if (params[:filter_type] != 'all' and params[:filter_type] != 'today_events')
-        events = Event.send params[:filter_type], params[:value]
+    if (params[:filter_type] != 'all' and params[:filter_type] != 'today_events')  
+      events = Event.send params[:filter_type], params[:value]
     else
       events = Event.send params[:filter_type]
     end
-    if params[:filter_type] != 'by_uuid' and params[:filter_type] != 'by_id'
-      paginate json: events, per_page: params[:per_page] || 9
-    else
-      render json: events.to_json(include: :students) # this is only one, no need for pagination on rest
-    end
+
+    paginate json: events, per_page: params[:per_page] || 10
+  end
+
+  def show 
+    event = Event.send params[:filter_type], params[:id]
+    
+    render json: event.to_json(include: :students)
   end
 
   def enroll

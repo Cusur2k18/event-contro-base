@@ -1,6 +1,6 @@
 ActiveAdmin.register Event, as: 'Eventos' do
   menu label: 'Mis Eventos', if: proc{ !current_admin_user.super_admin }
-  permit_params :name, :career, :description, :location, :start_date, :end_date, :cover, :available_spots, :open_to_enroll
+  permit_params :name, :career, :description, :location, :start_date, :end_date, :cover, :available_spots, :open_to_enroll, :visible_for_app
 
   # Scope the events to the current user
   scope_to :current_admin_user, association_method: :events
@@ -81,6 +81,7 @@ ActiveAdmin.register Event, as: 'Eventos' do
     column 'Fecha de finalización', :end_date
     column 'Carrera', :career
     column 'Registro activo', :open_to_enroll
+    column 'Visible', :visible_for_app
     actions
   end # ================================================= END INDEX =========================================================
 
@@ -147,6 +148,7 @@ ActiveAdmin.register Event, as: 'Eventos' do
   # |_|    \____/|_|  \_\_|  |_|
   form do |f|
     f.inputs do
+      f.input :visible_for_app, label: '¿Visible?', input_html: { autocomplete: 'off' }
       span '* Requeridos', class: 'required-label'
       f.input :name, label: 'Nombre del evento', input_html: { autocomplete: 'off' }
       f.input :career, label: 'Carrera a la que aplica', input_html: { autocomplete: 'off' }
@@ -196,6 +198,4 @@ ActiveAdmin.register Event, as: 'Eventos' do
   action_item :view, only: :show, priority: 0 do
     link_to 'Descargar lista de asistencia', asistencia_admin_evento_path(resource.id), class: 'target_blank' if resource.attendance_list_ready?
   end # ================================================== END ACTIONS ITEMS ========================================================
-
-
 end
