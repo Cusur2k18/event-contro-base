@@ -59,6 +59,7 @@ ActiveRecord::Schema.define(version: 2018_12_07_032518) do
     t.datetime "start_date"
     t.datetime "end_date"
     t.boolean "open_to_enroll", default: true
+    t.boolean "visible_for_app", default: false
     t.integer "available_spots", default: 0
     t.string "cover"
     t.integer "admin_user_id"

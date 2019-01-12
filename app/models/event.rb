@@ -10,12 +10,16 @@ class Event < ApplicationRecord
     order('created_at DESC')
   }
 
+  scope :get_all, lambda {
+    where('visible_for_app = true')
+  }
+
   scope :by_name, lambda { |value|
-    where('name LIKE ?', "%#{value}%")
+    where('name LIKE ?', "%#{value}%").where('visible_for_app = true')
   }
 
   scope :by_career, lambda { |value|
-    where('career LIKE ?', "%#{value}%")
+    where('career LIKE ?', "%#{value}%").where('visible_for_app = true')
   }
 
   scope :by_uuid, lambda { |uuid|
@@ -27,7 +31,7 @@ class Event < ApplicationRecord
   }
 
   scope :today_events, lambda {
-    where('start_date BETWEEN ? AND ?', Time.now.beginning_of_day, Time.now.end_of_day)
+    where('start_date BETWEEN ? AND ?', Time.now.beginning_of_day, Time.now.end_of_day).where('visible_for_app = true')
   }
 
   default_scope { by_newest }
