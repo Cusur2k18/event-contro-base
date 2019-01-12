@@ -12,10 +12,11 @@ class EventsController < ApiController
 
   def show 
     event = Event.send params[:filter_type], params[:id]
-    
+
     render json: event.to_json(include: :students)
   end
 
+  # TODO: Make this his own REST API on enrollments
   def enroll
     enroll = Enrollment.new({ student_id: params[:student_id], event_id: params[:event_id], attended: false })
 
