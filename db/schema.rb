@@ -12,13 +12,16 @@
 
 ActiveRecord::Schema.define(version: 2018_12_07_032518) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
     t.text "body"
     t.string "resource_type"
-    t.integer "resource_id"
+    t.bigint "resource_id"
     t.string "author_type"
-    t.integer "author_id"
+    t.bigint "author_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["author_type", "author_id"], name: "index_active_admin_comments_on_author_type_and_author_id"
@@ -42,8 +45,8 @@ ActiveRecord::Schema.define(version: 2018_12_07_032518) do
   create_table "enrollments", force: :cascade do |t|
     t.boolean "attended", default: false
     t.datetime "attended_date"
-    t.integer "event_id"
-    t.integer "student_id"
+    t.bigint "event_id"
+    t.bigint "student_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["event_id"], name: "index_enrollments_on_event_id"
@@ -59,9 +62,10 @@ ActiveRecord::Schema.define(version: 2018_12_07_032518) do
     t.datetime "start_date"
     t.datetime "end_date"
     t.boolean "open_to_enroll", default: true
+    t.boolean "visible_for_app", default: false
     t.integer "available_spots", default: 0
     t.string "cover"
-    t.integer "admin_user_id"
+    t.bigint "admin_user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["admin_user_id"], name: "index_events_on_admin_user_id"
@@ -77,4 +81,7 @@ ActiveRecord::Schema.define(version: 2018_12_07_032518) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "enrollments", "events"
+  add_foreign_key "enrollments", "students"
+  add_foreign_key "events", "admin_users"
 end
