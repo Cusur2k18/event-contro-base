@@ -1,23 +1,23 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  uuid: MyString
-  name: MyString
-  career: MyString
-  description: MyText
-  location: MyString
-  startDate: 2018-12-06 20:42:43
-  endDate: 2018-12-06 20:42:43
-  cover: MyString
-  admin_user: one
+# one:
+#   uuid: MyString
+#   name: MyString
+#   career: MyString
+#   description: MyText
+#   location: MyString
+#   startDate: 2018-12-06 20:42:43
+#   endDate: 2018-12-06 20:42:43
+#   cover: MyString
+#   admin_user: one
 
-two:
-  uuid: MyString
-  name: MyString
-  career: MyString
-  description: MyText
-  location: MyString
-  startDate: 2018-12-06 20:42:43
-  endDate: 2018-12-06 20:42:43
-  cover: MyString
-  admin_user: two
+# two:
+#   uuid: MyString
+#   name: MyString
+#   career: MyString
+#   description: MyText
+#   location: MyString
+#   startDate: 2018-12-06 20:42:43
+#   endDate: 2018-12-06 20:42:43
+#   cover: MyString
+#   admin_user: two
