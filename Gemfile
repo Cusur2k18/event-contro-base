@@ -5,8 +5,6 @@ ruby '2.5.3'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.1'
-# Use sqlite3 as the database for Active Record
-gem 'sqlite3'
 # use postgress for db on production
 gem 'pg'
 # Use Puma as the app server
@@ -63,6 +61,8 @@ group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'pry'
   gem 'pry-rails'
+  # Use sqlite3 as the database for dev on test
+  gem 'sqlite3'
 end
 
 group :development do
