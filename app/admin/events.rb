@@ -1,5 +1,5 @@
 ActiveAdmin.register Event, as: 'Eventos' do
-  menu label: 'Mis Eventos', if: proc{ !current_admin_user.super_admin }
+  menu label: 'Mis Eventos', if: proc{ !current_admin_user.super_admin }, priority: 1
   permit_params :name, :career, :description, :location, :start_date, :end_date, :cover, :available_spots, :open_to_enroll, :visible_for_app
 
   # Scope the events to the current user

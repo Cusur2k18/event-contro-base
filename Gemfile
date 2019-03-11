@@ -35,6 +35,9 @@ gem 'api-pagination'
 # wicked pdf for reports
 gem 'wicked_pdf'
 gem 'wkhtmltopdf-binary'
+# React and webpacker
+gem 'webpacker'
+gem 'react-rails'
 
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
