@@ -196,6 +196,6 @@ ActiveAdmin.register Event, as: 'Eventos' do
   #  / ____ \ |____   | |   _| || |__| | |\  |  _| |_   | |  | |____| |  | |____) |
   # /_/    \_\_____|  |_|  |_____\____/|_| \_| |_____|  |_|  |______|_|  |_|_____/ 
   action_item :view, only: :show, priority: 0 do
-    link_to 'Descargar lista de asistencia', asistencia_admin_evento_path(resource.id), class: 'target_blank' if resource.attendance_list_ready?
+    link_to 'Descargar lista de asistencia', asistencia_admin_evento_path(resource.id), class: "target_blank #{resource.attendance_list_ready? ? 'enabled' : 'disabled'}", onclick: "#{resource.attendance_list_ready? ? '' : 'return false;'}"
   end # ================================================== END ACTIONS ITEMS ========================================================
 end
