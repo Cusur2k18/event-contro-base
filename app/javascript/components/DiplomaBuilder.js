@@ -1,6 +1,6 @@
 import React from "react"
 import SelectSearch from 'react-select-search'
-import PropTypes from 'prop-types'
+import Tools from './Tools'
 
 class DiplomaBuilder extends React.Component {
 
@@ -74,34 +74,9 @@ class DiplomaBuilder extends React.Component {
                   <div className="item-title center">
                     <span>Elementos</span>
                   </div>
-                  <div className="sidebar-tools">
 
-
-                    <ul className="tools">
-
-
-                      <li className="item-tool" draggable>
-                        <span>[NOMBRE_DEL_ALUMNO]</span>
-                      </li>
-                      <li className="item-tool" draggable>
-                        <span>[NOMBRE_DEL_ALUMNO]</span>
-                      </li>
-                      <li className="item-tool" draggable>
-                        <span>[NOMBRE_DEL_ALUMNO]</span>
-                      </li>
-                      <li className="item-tool" draggable>
-                        <span>[NOMBRE_DEL_ALUMNO]</span>
-                      </li>
-                      <li className="item-tool" draggable>
-                        <span>[NOMBRE_DEL_ALUMNO]</span>
-                      </li>
-
-
-                    </ul>
-
-
-
-                  </div>
+                  <Tools />
+                  
                 </div>
               </section>
             </div>

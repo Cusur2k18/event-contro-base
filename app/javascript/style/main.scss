@@ -46,6 +46,10 @@
 
     &.with-sidebar {
 
+      .bordered {
+        margin-right: 15px;
+      }
+
       .outter {
         padding: .5rem 2rem;
 
@@ -77,7 +81,7 @@
 
   .sidebar {
     float: right;
-    width: 270px;
+    width: 20%;
     margin-left: -270px;
     display: inline-block;
     margin-top: .5rem;
@@ -100,6 +104,7 @@
           padding: .5rem;
           text-align: center;
           box-shadow: 0px 1px 1px $panel-border-color;
+          cursor: move;
         }
       }
     }
