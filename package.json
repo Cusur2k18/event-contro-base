@@ -8,6 +8,7 @@
     "prop-types": "^15.7.2",
     "react": "^16.8.4",
     "react-dom": "^16.8.4",
+    "react-select-search": "^0.9.6",
     "react_ujs": "^2.4.4"
   },
   "engines": {
