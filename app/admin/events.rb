@@ -103,10 +103,10 @@ ActiveAdmin.register Event, as: 'Eventos' do
       row 'Fecha de inicio' do
         event.start_date
       end
-      row 'Fecha de finalizacion' do
+      row 'Fecha definalización' do
         event.end_date
       end
-      row 'Numero de lugares' do
+      row 'Número de lugares' do
         event.available_spots > 0 ? event.available_spots : 'No aplica'
       end
       row 'Registro activo?' do
@@ -121,9 +121,9 @@ ActiveAdmin.register Event, as: 'Eventos' do
     end
 
     panel 'Alumnos registrados' do
-      span "Numero de alumnos registrados: #{event.students.length}"
+      span "Número de alumnos registrados: #{event.students.length}"
       table_for(event.students) do
-        column 'Codigo', :student_code
+        column 'Código', :student_code
         column 'Nombre', :name
         column 'Carrera', :career
       end
