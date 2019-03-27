@@ -8,8 +8,8 @@ module ActiveAdmin
           div(class: 'footer-left') do
             ul do
               li 'CENTRO UNIVERSITARIO DEL SUR'
-              li 'Av. Enrique Arreola Silva No. 883, colonia centro'
-              li 'C.P. 49000, Ciudad Guzmán, Jalisco México'
+              li 'Av. Enrique Arreola Silva No. 883, Colonia Centro'
+              li 'C.P. 49000, Ciudad Guzmán, Jalisco, México'
               li 'Teléfono: +52 (341) 575 2222. Fax 01 (341) 5752223'
             end
           end
