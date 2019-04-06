@@ -75,6 +75,12 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'faker'
+  # Capistrano
+  gem 'capistrano', '~> 3.11', require: false
+  gem 'capistrano-rails'
+  gem 'capistrano-rails-console', require: false
+  gem 'capistrano-rvm'
+  gem 'capistrano3-puma'
 end
 
 group :test do
