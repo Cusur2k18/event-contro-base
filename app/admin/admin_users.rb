@@ -58,7 +58,7 @@ ActiveAdmin.register AdminUser, as: 'Usuarios' do
       row 'Es Super Administrador?' do |user|
         user.super_admin
       end
-      row 'Fecha de creacion' do |user|
+      row 'Fecha de creación' do |user|
         user.created_at
       end
     end
