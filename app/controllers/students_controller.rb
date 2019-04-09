@@ -1,7 +1,7 @@
 class StudentsController < ApiController
 
   def login
-    client = Savon.client(wsdl: 'http://mw2.siiau.udg.mx/WSEscolar-war/WSEscolar?WSDL')
+    client = Savon.client(wsdl: Rails.application.credentials[Rails.env.to_sym][:cusur_wsdl])
     xmlResponse = client.call(:datos_alumno, { message: { pCodigo: params[:studentCode], pNip: params[:nip]}})
     response = JSON.parse xmlResponse.body[:datos_alumno_response][:return]
 
