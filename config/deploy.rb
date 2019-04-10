@@ -8,7 +8,7 @@ set :repo_url, "git@github.com:Cusur2k18/event-contro-base.git"
 set :user, 'bolsadetrabajo'
 set :puma_threads,    [4, 16]
 set :puma_workers,    0
-set :branch, :master
+set :branch, :staging
 
 set :pty,             true
 set :use_sudo,        false
@@ -86,7 +86,8 @@ end
 # set :pty, true
 
 # Default value for :linked_files is []
-append :linked_files, "config/database.yml", "config/master.key"
+set :linked_files, %w{config/master.key}
+#append :linked_files, "config/database.yml", "config/master.key"
 
 # Default value for linked_dirs is []
 append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "public/system"
