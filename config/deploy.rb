@@ -8,7 +8,7 @@ set :repo_url, "git@github.com:Cusur2k18/event-contro-base.git"
 set :user, 'bolsadetrabajo'
 set :puma_threads,    [4, 16]
 set :puma_workers,    0
-set :branch, :staging
+set :branch, :develop
 
 set :pty,             true
 set :use_sudo,        false
